@@ -1,0 +1,380 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* classes for react */
+
+.menuLinksA{
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menuLinksAColor.notActive{
+  color: black;
+  padding: 8px;
+}
+
+.menuLinksAColor.active{
+  color: limegreen;
+  padding: 16px;
+  border-bottom: 2px solid limegreen;
+}
+
+.menuLinksUl{
+  display: flex;
+  list-style-type: none;
+}
+
+/* Container Styles */
+.container {
+  width: 100%;
+  padding-top: 20px; /* Space inside the container */
+  background-color: white; /* Optional: background color */
+ 
+  border-radius: 8px; /* Optional: rounded corners */
+}
+
+
+.categoryNameMargin{
+  padding-top:40px;
+  margin-top: 0px;
+  margin-left: 43px;
+  font-size: large;
+}
+
+
+.menu{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.gridContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto; /* Center the grid horizontally */
+  width: 1000px;
+  padding-bottom: 20px;
+}
+
+.gridItem {
+  position: relative; /* Needed for overlay positioning */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin-top: 50px; /* Space between items */
+  padding: 10px;
+}
+
+.gridItem:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+
+.imageContainer {
+  position: relative;
+  width: 100%; /* Ensure the container spans full width */
+  height: 250px; /* Fixed height for the container */
+  display: flex; /* Flexbox for centering the image */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.imageShoppingContainer{
+  position: relative;
+  width: 100%; /* Ensure the container spans full width */
+  height: 30px; /* Fixed height for the container */
+  display: flex; /* Flexbox for centering the image */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.imageShoppingContainer img{
+  width: 50%;
+  height: 100px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.gridItem img {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+
+.outOfStock img {
+  opacity: 0.3; /* Gray out the image */
+}
+
+.outOfStock::after {
+  content: 'OUT OF STOCK';
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: GRAY;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.textContainer {
+  width: 100%; /* Ensure it spans the full width */
+  text-align: left; /* Align text to the left */
+  margin-top: 10px; /* Space between image and text */
+}
+
+.iconContainer{
+  position: absolute;
+  bottom: -20px;
+  left: 80%;
+  color: white;
+  background-color: limegreen;
+  border-radius: 20px;
+  padding: 10px;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Initially hidden */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+}
+
+.gridItem:hover .iconContainer {
+  opacity: 1; /* Show the icon on hover */
+  visibility: visible; /* Show the icon on hover */
+}
+
+
+.galleryContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.productContainer{
+  margin-top: 10%;
+  margin-bottom: 550px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+.galleryPreviewContainer{
+  max-width: 50px; /* Set this to your desired max width */
+  max-height: 300px; /* Restrict the max height */
+  overflow-y: auto; /* Allow vertical scrolling if there are more images */  
+}
+
+.galleryPreviewContainer img{
+  padding-bottom: 10px; /* Space between images */
+  width: 100%; /* Maintain full width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; 
+}
+
+.carouselContainer{
+  position: relative;
+  margin-left: 60px;
+  max-width: 300px; /* Set this to your desired max width */
+  max-height: 300px; /* Set this to your desired max height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+}
+
+.currentImage {
+  width: 100%;
+  height: 100%; 
+  object-fit: contain; 
+}
+
+.arrowLeft, .arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.arrowLeft {
+  left: 10px; /* Adjust position from the left */
+}
+
+.arrowRight {
+  right: 10px; /* Adjust position from the right */
+}
+
+.arrowLeft:hover, .arrowRight:hover{
+   background-color: #333;
+}
+
+.disabledArrow{
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.detailsContainer{
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  max-height: 100px;
+}
+
+.greenAddToCart{
+   background-color: limegreen;
+   color: white;
+   padding: 10px;
+}
+
+.grayAddToCart{
+  background-color: lightgray;
+  color: black;
+  padding: 10px;
+}
+
+.selectedBoxNotColor { 
+     /* clicked box with attribute name that is not color*/
+      background-color: black;
+      cursor: pointer;
+      color: white;
+}
+
+.selectedBoxBorderNotColor {
+   /* clicked box with attribute name that is color*/
+  border: 1px solid lime;
+  cursor: pointer;
+}
+
+.selectedBoxWidthCapacity{
+   /*  box with attribute name that is capacity*/
+  width: 35px;
+}
+.selectedBoxWidth{
+   width: 20px;
+}
+
+.notSelectedBoxBackgroundColor{
+   /* not selected box with attribute name that is not color*/
+  background-color: white;
+  color: black;
+}
+
+
+
+.boxItem{
+   display: inline-block;
+   text-align: center;
+   margin: 2px;
+   height: 20px;
+  
+}
+
+
+.borderWithoutSelectedColor{
+  border: 2px solid black;
+}
+
+
+.blurredContainer{
+  background-color: rgba(0, 0, 0, 0.2); /* Grayish overlay, adjust opacity as needed */
+  opacity: 0.8;
+}
+.notBlurredContainer{
+  background-color: white;
+}
+
+.shoppingCartContainer{
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+
+}
+
+.shoppingItemContainer{
+  background-color: white;
+  /* padding-top:20px; */
+  width: 300px;
+  position: absolute;
+  top:74px;
+  right: 20px;
+  padding: 20px;
+  z-index:10;
+  max-height: 900px; /* Restrict the max height */
+  overflow-y: auto;
+}
+
+.shoppingItems{
+  display: flex;
+  flex-direction: column;
+}
+
+.placeOrderBtn{
+  padding: 20px;
+  width: 100%;
+  color: green;
+  background-color: limegreen;
+  color: white;
+}
+
+.iconCounter{
+  position: absolute;
+  right: 10px;
+  top:25px;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 0.75rem;    
+}
